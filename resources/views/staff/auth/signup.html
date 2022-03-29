@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../../../assets/"
+  data-template="vertical-menu-template-no-customizer"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Daftar Akaun | Datapace</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../../assets/img/favicon/favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../../assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/css/theme-default.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/typeahead-js/typeahead.css" />
+    <!-- Vendor -->
+    <link rel="stylesheet" href="../../../assets/vendor/libs/bs-stepper/bs-stepper.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="../../../assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Page -->
+    <link rel="stylesheet" href="../../../assets/vendor/css/pages/page-auth.css" />
+    <!-- Helpers -->
+    <script src="../../../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Content -->
+
+    <div class="authentication-wrapper authentication-cover">
+      <div class="authentication-inner row m-0">
+        <!-- Left Text -->
+        <div class="d-none d-lg-flex col-lg-4 justify-content-end align-items-center p-5 pe-0">
+          <div class="w-px-400">
+            <img
+              src="../../../assets/img/illustrations/create-account-light.png"
+              class="img-fluid scaleX-n1-rtl"
+              alt="multi-steps"
+              width="600"
+              data-app-light-img="illustrations/create-account-light.png"
+              data-app-dark-img="illustrations/create-account-dark.png"
+            />
+          </div>
+        </div>
+        <!-- /Left Text -->
+
+        <!--  Multi Steps Registration -->
+        <div class="authentication-bg d-flex col-lg-8 p-3 p-sm-5">
+          <div class="w-px-700 d-flex flex-column mx-auto">
+            <!-- Logo -->
+            <div class="app-brand border-bottom mx-3 mb-4">
+              <a href="login.html" class="app-brand-link gap-2 mb-3">
+                <span class="app-brand-logo">
+                  <img src="../../../assets/img/branding/Datapace.svg" width="50%">
+              </a>
+            </div>
+            <!-- /Logo -->
+
+            <div class="my-auto">
+              <div id="multiStepsValidation" class="bs-stepper shadow-none">
+                <div class="bs-stepper-header">
+                  <div class="step" data-target="#idCardCheckValidation">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle">
+                        <i class="fal fa-id-card"></i>
+                      </span>
+                      <span class="bs-stepper-label">
+                        <span class="bs-stepper-title" >Pengesahan</span>
+                        <span class="bs-stepper-subtitle">Semakan No K/P</span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="line"></div>
+                  <div class="step" data-target="#personalInfoValidation">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle">
+                        <i class="fal fa-user"></i>
+                      </span>
+                      <span class="bs-stepper-label">
+                        <span class="bs-stepper-title">Peribadi</span>
+                        <span class="bs-stepper-subtitle">Maklumat Diri</span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="line"></div>
+                  <div class="step" data-target="#accountDetailsValidation">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle">
+                        <i class="fal fa-fingerprint"></i>
+                      </span>
+                      <span class="bs-stepper-label">
+                        <span class="bs-stepper-title">Akaun</span>
+                        <span class="bs-stepper-subtitle">Butiran Akaun</span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div class="bs-stepper-content pt-4">
+                  <form id="multiStepsForm" onSubmit="return false">
+                    <!-- Account Details -->
+                    <div id="idCardCheckValidation" class="content">
+                      <div class="content-header mb-3">
+                        <h4>Semakan No Kad Pengenalan</h4>
+                        <span>Sila isi no kad pengenalan anda</span>
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-sm-8">
+                          <div class="form-floating">
+                            <input 
+                            type="text" 
+                            id="multiStepsIdCard"
+                            name="multiStepsIdCard"
+                            class="form-control"
+                            placeholder="000000-00-0000" 
+                            aria-describedby="multiStepsIdCard"
+                            >
+                            <label  for="multiStepsIdCard">No Kad Pengenalan</label>
+                            <div class="form-text">Kami tidak akan pernah berkongsi butiran anda dengan orang lain.</div>
+                          </div>
+                        </div>
+                        <div class="d-flex col-12 justify-content-end mt-5">
+                          <button class="btn btn-primary btn-next">
+                            <span class="d-none d-sm-inline-block me-0 me-sm-1">Sahkan</span>
+                            <i class="far fa-angle-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Personal Info -->
+                    <div id="personalInfoValidation" class="content">
+                      <div class="content-header mb-3">
+                        <h4>Maklumat Peribadi</h4>
+                        <span>Sila isi maklumat peribadi anda</span>
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-sm-6">
+                          <div class="form-floating">
+                            <input 
+                            type="text" 
+                            id="multiStepsFirstName"
+                            name="multiStepsFirstName"
+                            class="form-control"
+                            placeholder="Sila isi nama pertama..." 
+                            >
+                            <label for="multiStepsFirstName">Nama Pertama</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-floating">
+                            <input 
+                            type="text" 
+                            id="multiStepsLastName"
+                            name="multiStepsLastName"
+                            class="form-control" 
+                            placeholder="Sila isi nama terakhir..." 
+                            >
+                            <label for="multiStepsLastName">Nama Terakhir</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="multiStepsPosition" class="form-label">Jawatan</label>
+                          <input 
+                          id="multiStepsPosition"
+                          name="multiStepsPositon"
+                          class="form-control form-control-lg"
+                          type="text"
+                          placeholder="">
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="multiStepsMobile" class="form-label">No Telefon</label>
+                          <input 
+                          id="multiStepsMobile"
+                          name="multiStepsMobile"
+                          class="form-control form-control-lg"
+                          type="text"
+                          placeholder="+6011 200 2020">
+                        </div>
+                        <div class="col-md-12">
+                          <label for="multiStepsAddress" class="form-label">Alamat Tetap</label>
+                          <textarea 
+                          id="multiStepsAddress"
+                            name="multiStepsAddress"
+                          class="form-control form-control-lg"
+                          type="text"
+                          ></textarea>
+                        </div>
+                        <div class="col-sm-4">
+                          <label for="multiStepsPoscode" class="form-label">Poskod</label>
+                          <input 
+                          id="multiStepsPoscode"
+                          name="multiStepsPoscode"
+                          class="form-control form-control-lg"
+                          type="text"
+                          placeholder="20000"
+                          maxlength="5">
+                        </div>
+                        <div class="col-sm-4">
+                          <label for="multiStepsDistrict" class="form-label">Daerah</label>
+                          <input 
+                          id="multiStepsDistrict"
+                          name="multiStepsDistrict" 
+                          class="form-control form-control-lg typeahead-multi-datasets">
+
+                        </div>
+                        <div class="col-sm-4">
+                          <label class="form-label" for="multiStepsState">Negeri</label>
+                          <select id="multiStepsState" name="multiStepsState" class="form-select form-select-lg" data-allow-clear="true">
+                            <option value="">Sila Pilih...</option>
+                            <option value="01">Johor</option>
+                            <option value="02">Kedah</option>
+                            <option value="03">Kelantan</option>
+                            <option value="04">Melaka</option>
+                            <option value="05">Negeri Sembilan</option>
+                            <option value="06">Pahang</option>
+                            <option value="07">Puala Pinang</option>
+                            <option value="08">Perak</option>
+                            <option value="09">Perlis</option>
+                            <option value="10">Selangor</option>
+                            <option value="11">Terengganu</option>
+                            <option value="12">Sabah</option>
+                            <option value="13">Sarawak</option>
+                          </select>
+                        </div>
+                        <div class="d-flex col-12 justify-content-between mt-4">
+                          <button class="btn btn-label-secondary btn-prev" disabled>
+                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                            <span class="d-none d-sm-inline-block">Sebelumnya</span>
+                          </button>
+                          <button class="btn btn-primary btn-next">
+                            <span class="d-none d-sm-inline-block me-0 me-sm-1">Seterusnya</span>
+                            <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Billing Links -->
+                    <div id="accountDetailsValidation" class="content">
+                      <div class="content-header mb-3">
+                        <h4>Maklumat Akaun</h4>
+                        <span>Sila isi maklumat akaun</span>
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-sm-6">
+                          <div class="form-floating">
+                            <input 
+                            type="text" 
+                            name="multiStepsUsername"
+                            id="multiStepsUsername"
+                            class="form-control"
+                            placeholder="Sila cipta nama pengguna yang unik" 
+                            >
+                            <label for="multiStepsUsername">Nama Pengguna</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-floating">
+                            <input 
+                            type="text" 
+                            name="multiStepsEmail"
+                            id="multiStepsEmail"
+                            class="form-control"
+                            placeholder="Ali@kutt.my" 
+                            >
+                            <label for="multiStepsEmail">Alamat Emel</label>
+                          </div>
+                        </div>
+                        <div class="form-password-toggle col-sm-6">
+                          <label class="form-label" for="multiStepsPass">Kata Laluan</label>
+                          <div class="input-group input-group-merge">
+                            <input
+                              type="password"
+                              id="multiStepsPass"
+                              name="multiStepsPass"
+                              class="form-control form-control-lg"
+                              placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                              aria-describedby="multiStepsPass2"
+                            />
+                            <span class="input-group-text cursor-pointer" id="multiStepsPass2"
+                              ><i class="far fa-eye-slash"></i></span>
+                          </div>
+                        </div>
+                        <div class="form-password-toggle col-sm-6">
+                          <label class="form-label" for="multiStepsConfirmPass">Sahkan Kata Laluan</label>
+                          <div class="input-group input-group-merge">
+                            <input
+                              type="password"
+                              id="multiStepsConfirmPass"
+                              name="multiStepsConfirmPass"
+                              class="form-control form-control-lg"
+                              placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                              aria-describedby="multiStepsConfirmPass2"
+                            />
+                            <span class="input-group-text cursor-pointer" id="multiStepsConfirmPass2"
+                              ><i class="far fa-eye-slash"></i></span>
+                          </div>
+                        </div>
+                        <div class="d-flex col-12 justify-content-between mt-4">
+                          <button class="btn btn-primary btn-prev">
+                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                            <span class="d-none d-sm-inline-block">Seterusnya</span>
+                          </button>
+                          <button class="btn btn-primary btn-next">
+                            <span class="d-none d-sm-inline-block me-0 me-sm-1">Daftar</span>
+                            <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / Multi Steps Registration -->
+      </div>
+    </div>
+
+    <script>
+      // Check selected custom option
+      window.Helpers.initCustomOptionCheck();
+    </script>
+
+    <!-- / Content -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../../assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="../../../assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="../../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="../../../assets/vendor/libs/bloodhound/bloodhound.js"></script>
+
+    <script src="../../../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../../../assets/vendor/libs/cleavejs/cleave.js"></script>
+    <script src="../../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+    <script src="../../../assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+    <script src="../../../assets/vendor/libs/select2/select2.js"></script>
+    <script src="../../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+    <script src="../../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+    <script src="../../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="../../../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../../../assets/js/auth-signup.js"></script>
+  </body>
+</html>

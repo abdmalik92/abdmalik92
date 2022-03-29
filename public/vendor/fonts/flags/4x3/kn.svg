@@ -1,0 +1,48 @@
+@use '../../scss/_bootstrap-extended/include' as light;
+@use '../../scss/_bootstrap-extended/include-dark' as dark;
+@import '../../scss/_custom-variables/libs';
+@import 'mixins';
+
+.ql-editor,
+.ql-content {
+  $quill-indent: 2rem;
+
+  p,
+  ol,
+  ul,
+  pre,
+  blockquote,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  }
+
+  ol,
+  ul {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  ol > li,
+  ul > li {
+    list-style-type: none;
+
+    &:not(.ql-direction-rtl) {
+      padding-left: $quill-indent;
+
+      @include app-rtl {
+        padding-right: $quill-indent;
+        padding-left: 0;
+      }
+    }
+
+    &.ql-direction-rtl {
+      padding-right: $quill-indent;
+
+      @i

@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "avatar": "",
+      "full_name": "Abd Malik",
+      "post": "Pegawai Projek TNB",
+      "email": "korrie@tnb.com.my",
+      "created_date": "09/23/2021",
+      "register_id": "192",
+      "estimated_length": "180",
+      "provider": "Tenaga Nasional",
+      "provider_avatar": "TNB.jpg",
+      "district": ["MG", "KT"],
+      "status": 1
+    },
+    {
+      "id": 2,
+      "avatar": "4.png",
+      "full_name": "Korrie O'Crevy",
+      "post": "Pegawai Projek TNB",
+      "email": "korrie@tnb.com.my",
+      "created_date": "09/23/2021",
+      "register_id": "1342",
+      "estimated_length": "80",
+      "provider": "Maxis Broadband",
+      "provider_avatar": "MXS.jpg",
+      "district": ["MG"],
+      "status": 3
+    },    {
+      "id": 3,
+      "avatar": "3.png",
+      "full_name": "Korrie O'Crevy",
+      "post": "Pegawai Projek TNB",
+      "email": "korrie@tnb.com.my",
+      "created_date": "09/23/2021",
+      "register_id": "152",
+      "estimated_length": "14000",
+      "provider": "Telekom Malaysia",
+      "provider_avatar": "TM.jpg",
+      "district": ["KT"],
+      "status": 1
+    },    {
+      "id": 4,
+      "avatar": "5.png",
+      "full_name": "Korrie O'Crevy",
+      "post": "Pegawai Projek TNB",
+      "email": "korrie@tnb.com.my",
+      "created_date": "09/23/2021",
+      "register_id": "182",
+      "estimated_length": "3000",
+      "provider": "Digi Telecommunications",
+      "provider_avatar": "DIGI.jpg",
+      "district": ["ST"],
+      "status": 4
+    },    {
+      "id": 5,
+      "avatar": "8.png",
+      "full_name": "Korrie O'Crevy",
+      "post": "Pegawai Projek TNB",
+      "email": "korrie@tnb.com.my",
+      "created_date": "09/23/2021",
+      "register_id": "122",
+      "estimated_length": "3000",
+      "provider": "Tenaga Nasional",
+      "provider_avatar": "TNB.jpg",
+      "district": ["KT", "KN"],
+      "status": 2
+    },    {
+      "id": 6,
+      "avatar": "9.png",
+      "full_name": "Korrie O'Crevy",
+      "post": "Pegawai Projek TNB",
+      "email": "korrie@tnb.com.my",
+      "created_date": "09/23/2021",
+      "register_id": "124",
+      "estimated_length": "3000",
+      "provider": "Syarikat Air Terengganu",
+      "provider_avatar": "SATU.jpg",
+      "district": ["MG", "KT"],
+      "status": 5
+    }
+  ]
+}

@@ -1,0 +1,852 @@
+/* Config */
+:root {
+  --sk-size: 40px;
+  --sk-color: #333;
+}
+
+/* Utility class for centering */
+.sk-center {
+  margin: auto;
+}
+
+/*  Plane
+
+      <div class="sk-plane"></div>
+ */
+.sk-plane {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  background-color: var(--sk-color);
+  animation: sk-plane 1.2s infinite ease-in-out;
+}
+
+@keyframes sk-plane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+/*  Chase
+
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+ */
+.sk-chase {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: sk-chase-dot 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:before {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: var(--sk-color);
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:nth-child(1) {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3) {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4) {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5) {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6) {
+  animation-delay: -0.6s;
+}
+
+.sk-chase-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+@keyframes sk-chase {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot {
+  80%, 100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4);
+  }
+  100%, 0% {
+    transform: scale(1);
+  }
+}
+/*  Bounce
+
+      <div class="sk-bounce">
+        <div class="sk-bounce-dot"></div>
+        <div class="sk-bounce-dot"></div>
+      </div>
+  */
+.sk-bounce {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+}
+
+.sk-bounce-dot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--sk-color);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sk-bounce 2s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.sk-bounce-dot:nth-child(2) {
+  animation-delay: -1s;
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+  }
+  45%, 55% {
+    transform: scale(1);
+  }
+}
+/*  Wave
+
+      <div class="sk-wave">
+        <div class="sk-wave-rect"></div>
+        <div class="sk-wave-rect"></div>
+        <div class="sk-wave-rect"></div>
+        <div class="sk-wave-rect"></div>
+        <div class="sk-wave-rect"></div>
+      </div>
+ */
+.sk-wave {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  display: flex;
+  justify-content: space-between;
+}
+
+.sk-wave-rect {
+  background-color: var(--sk-color);
+  height: 100%;
+  width: 15%;
+  animation: sk-wave 1.2s infinite ease-in-out;
+}
+
+.sk-wave-rect:nth-child(1) {
+  animation-delay: -1.2s;
+}
+
+.sk-wave-rect:nth-child(2) {
+  animation-delay: -1.1s;
+}
+
+.sk-wave-rect:nth-child(3) {
+  animation-delay: -1s;
+}
+
+.sk-wave-rect:nth-child(4) {
+  animation-delay: -0.9s;
+}
+
+.sk-wave-rect:nth-child(5) {
+  animation-delay: -0.8s;
+}
+
+@keyframes sk-wave {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+/*  Pulse
+
+      <div class="sk-pulse"></div>
+ */
+.sk-pulse {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  background-color: var(--sk-color);
+  border-radius: 100%;
+  animation: sk-pulse 1.2s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@keyframes sk-pulse {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+/*  Flow
+
+      <div class="sk-flow">
+        <div class="sk-flow-dot"></div>
+        <div class="sk-flow-dot"></div>
+        <div class="sk-flow-dot"></div>
+      </div>
+ */
+.sk-flow {
+  width: calc(var(--sk-size) * 1.3);
+  height: calc(var(--sk-size) * 1.3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.sk-flow-dot {
+  width: 25%;
+  height: 25%;
+  background-color: var(--sk-color);
+  border-radius: 50%;
+  animation: sk-flow 1.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s infinite both;
+}
+
+.sk-flow-dot:nth-child(1) {
+  animation-delay: -0.3s;
+}
+
+.sk-flow-dot:nth-child(2) {
+  animation-delay: -0.15s;
+}
+
+@keyframes sk-flow {
+  0%, 80%, 100% {
+    transform: scale(0.3);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+/*  Swing
+
+      <div class="sk-swing">
+        <div class="sk-swing-dot"></div>
+        <div class="sk-swing-dot"></div>
+      </div>
+ */
+.sk-swing {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+  animation: sk-swing 1.8s infinite linear;
+}
+
+.sk-swing-dot {
+  width: 45%;
+  height: 45%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: var(--sk-color);
+  border-radius: 100%;
+  animation: sk-swing-dot 2s infinite ease-in-out;
+}
+
+.sk-swing-dot:nth-child(2) {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes sk-swing {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-swing-dot {
+  0%, 100% {
+    transform: scale(0.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+/*  Circle
+
+      <div class="sk-circle">
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+        <div class="sk-circle-dot"></div>
+      </div>
+ */
+.sk-circle {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+}
+
+.sk-circle-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sk-circle-dot:before {
+  content: "";
+  display: block;
+  width: 15%;
+  height: 15%;
+  background-color: var(--sk-color);
+  border-radius: 100%;
+  animation: sk-circle 1.2s infinite ease-in-out both;
+}
+
+.sk-circle-dot:nth-child(1) {
+  transform: rotate(30deg);
+}
+
+.sk-circle-dot:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.sk-circle-dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.sk-circle-dot:nth-child(4) {
+  transform: rotate(120deg);
+}
+
+.sk-circle-dot:nth-child(5) {
+  transform: rotate(150deg);
+}
+
+.sk-circle-dot:nth-child(6) {
+  transform: rotate(180deg);
+}
+
+.sk-circle-dot:nth-child(7) {
+  transform: rotate(210deg);
+}
+
+.sk-circle-dot:nth-child(8) {
+  transform: rotate(240deg);
+}
+
+.sk-circle-dot:nth-child(9) {
+  transform: rotate(270deg);
+}
+
+.sk-circle-dot:nth-child(10) {
+  transform: rotate(300deg);
+}
+
+.sk-circle-dot:nth-child(11) {
+  transform: rotate(330deg);
+}
+
+.sk-circle-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+
+.sk-circle-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+
+.sk-circle-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+
+.sk-circle-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+
+.sk-circle-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+
+.sk-circle-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+.sk-circle-dot:nth-child(7):before {
+  animation-delay: -0.5s;
+}
+
+.sk-circle-dot:nth-child(8):before {
+  animation-delay: -0.4s;
+}
+
+.sk-circle-dot:nth-child(9):before {
+  animation-delay: -0.3s;
+}
+
+.sk-circle-dot:nth-child(10):before {
+  animation-delay: -0.2s;
+}
+
+.sk-circle-dot:nth-child(11):before {
+  animation-delay: -0.1s;
+}
+
+@keyframes sk-circle {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+/*  Circle Fade
+
+      <div class="sk-circle-fade">
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+        <div class="sk-circle-fade-dot"></div>
+      </div>
+ */
+.sk-circle-fade {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+}
+
+.sk-circle-fade-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sk-circle-fade-dot:before {
+  content: "";
+  display: block;
+  width: 15%;
+  height: 15%;
+  background-color: var(--sk-color);
+  border-radius: 100%;
+  animation: sk-circle-fade 1.2s infinite ease-in-out both;
+}
+
+.sk-circle-fade-dot:nth-child(1) {
+  transform: rotate(30deg);
+}
+
+.sk-circle-fade-dot:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.sk-circle-fade-dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.sk-circle-fade-dot:nth-child(4) {
+  transform: rotate(120deg);
+}
+
+.sk-circle-fade-dot:nth-child(5) {
+  transform: rotate(150deg);
+}
+
+.sk-circle-fade-dot:nth-child(6) {
+  transform: rotate(180deg);
+}
+
+.sk-circle-fade-dot:nth-child(7) {
+  transform: rotate(210deg);
+}
+
+.sk-circle-fade-dot:nth-child(8) {
+  transform: rotate(240deg);
+}
+
+.sk-circle-fade-dot:nth-child(9) {
+  transform: rotate(270deg);
+}
+
+.sk-circle-fade-dot:nth-child(10) {
+  transform: rotate(300deg);
+}
+
+.sk-circle-fade-dot:nth-child(11) {
+  transform: rotate(330deg);
+}
+
+.sk-circle-fade-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+
+.sk-circle-fade-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+
+.sk-circle-fade-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+
+.sk-circle-fade-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+
+.sk-circle-fade-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+
+.sk-circle-fade-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+.sk-circle-fade-dot:nth-child(7):before {
+  animation-delay: -0.5s;
+}
+
+.sk-circle-fade-dot:nth-child(8):before {
+  animation-delay: -0.4s;
+}
+
+.sk-circle-fade-dot:nth-child(9):before {
+  animation-delay: -0.3s;
+}
+
+.sk-circle-fade-dot:nth-child(10):before {
+  animation-delay: -0.2s;
+}
+
+.sk-circle-fade-dot:nth-child(11):before {
+  animation-delay: -0.1s;
+}
+
+@keyframes sk-circle-fade {
+  0%, 39%, 100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/*  Grid
+
+    <div class="sk-grid">
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+      <div class="sk-grid-cube"></div>
+    </div>
+ */
+.sk-grid {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  /* Cube positions
+   * 1 2 3
+   * 4 5 6
+   * 7 8 9
+   */
+}
+
+.sk-grid-cube {
+  width: 33.33%;
+  height: 33.33%;
+  background-color: var(--sk-color);
+  float: left;
+  animation: sk-grid 1.3s infinite ease-in-out;
+}
+
+.sk-grid-cube:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.sk-grid-cube:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.sk-grid-cube:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.sk-grid-cube:nth-child(4) {
+  animation-delay: 0.1s;
+}
+
+.sk-grid-cube:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.sk-grid-cube:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.sk-grid-cube:nth-child(7) {
+  animation-delay: 0s;
+}
+
+.sk-grid-cube:nth-child(8) {
+  animation-delay: 0.1s;
+}
+
+.sk-grid-cube:nth-child(9) {
+  animation-delay: 0.2s;
+}
+
+@keyframes sk-grid {
+  0%, 70%, 100% {
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    transform: scale3D(0, 0, 1);
+  }
+}
+/*  Fold
+
+      <div class="sk-fold">
+        <div class="sk-fold-cube"></div>
+        <div class="sk-fold-cube"></div>
+        <div class="sk-fold-cube"></div>
+        <div class="sk-fold-cube"></div>
+      </div>
+ */
+.sk-fold {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+  transform: rotateZ(45deg);
+}
+
+.sk-fold-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  transform: scale(1.1);
+}
+
+.sk-fold-cube:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--sk-color);
+  animation: sk-fold 2.4s infinite linear both;
+  transform-origin: 100% 100%;
+}
+
+.sk-fold-cube:nth-child(2) {
+  transform: scale(1.1) rotateZ(90deg);
+}
+
+.sk-fold-cube:nth-child(4) {
+  transform: scale(1.1) rotateZ(180deg);
+}
+
+.sk-fold-cube:nth-child(3) {
+  transform: scale(1.1) rotateZ(270deg);
+}
+
+.sk-fold-cube:nth-child(2):before {
+  animation-delay: 0.3s;
+}
+
+.sk-fold-cube:nth-child(4):before {
+  animation-delay: 0.6s;
+}
+
+.sk-fold-cube:nth-child(3):before {
+  animation-delay: 0.9s;
+}
+
+@keyframes sk-fold {
+  0%, 10% {
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%, 75% {
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+  90%, 100% {
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+/*  Wander
+
+      <div class="sk-wander">
+        <div class="sk-wander-cube"></div>
+        <div class="sk-wander-cube"></div>
+        <div class="sk-wander-cube"></div>
+        <div class="sk-wander-cube"></div>
+      </div>
+ */
+.sk-wander {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+}
+
+.sk-wander-cube {
+  background-color: var(--sk-color);
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  --sk-wander-distance: calc(var(--sk-size) * 0.75);
+  animation: sk-wander 2s ease-in-out -2s infinite both;
+}
+
+.sk-wander-cube:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+.sk-wander-cube:nth-child(3) {
+  animation-delay: -1s;
+}
+
+@keyframes sk-wander {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: translateX(var(--sk-wander-distance)) rotate(-90deg) scale(0.6);
+  }
+  50% {
+    /* Make FF rotate in the right direction */
+    transform: translateX(var(--sk-wander-distance)) translateY(var(--sk-wander-distance)) rotate(-179deg);
+  }
+  50.1% {
+    transform: translateX(var(--sk-wander-distance)) translateY(var(--sk-wander-distance)) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(0) translateY(var(--sk-wander-distance)) rotate(-270deg) scale(0.6);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+:root {
+  --sk-size: 30px;
+  --sk-color: #fff;
+}
+
+.sk-wave {
+  width: 40px;
+  white-space: nowrap;
+}
+
+.sk-fading-circle .sk-circle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sk-wave {
+  width: 40px;
+  white-space: nowrap;
+}
+
+.sk-fading-circle .sk-circle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  	a9d9992a-0ac9-4356-852b-4a8af2767acelocalhost/ucidos/html/stdashboard/registrationhttp://localhost/ucidos/html/apps/staff/tables/registration/ÅèõUiw	100650ff-f4e2-426d-8df1-bb0b67486c06localhost/ucidos/html/stdashboard/registrationhttp://localhost/ucidos/html/stdashboard/registration                          _èõ=Uu	5d662094-2193-4977-ac33-e473c3b79ab1rhttps://datatables.net/examples/api/row_details.htmlÅèõ:UÅc	0259a51f-7d22-4522-9fdb-0d2ccc21b5b0rhttps://www.google.com/search?q=regard&oq=r&aqs=edge.3.69i60j69i57j69i59l4j69i60l3&sourceid=chrome&ie=UTF-8¨"æ   I
+Î L ’T˛”}R'¸—§P%œyn#Ú¯Õ¢˙L!
+À	s
+u
+J
+	Ù	…	û
+†
+ˆ	HwN	«ú¶{®)>™qF∆õpEÔƒôCÌ¬ólA¿ñk@Íøîiiiii                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             +                                          +                                          +                                       *Ud6404b1f-70be-4a8b-8952-bef3d50d78a6Õ±*Uda51ba00-bb5e-461e-929e-2953b21683fbÃî*Udd4244e7-600a-4345-bda6-01919e39b7fa…b*Udd419af7-bf50-4e4f-a2b8-c4757d118c1c…î*Udd2746fa-841e-4fcc-8351-1a6dccb5ee05ÀÛ*Udcff1176-847f-4acf-be52-59b15de0c4d3Ã*Udce24357-ed5f-4898-8777-0f7d838bb55f *Udc6bddb7-06ae-4122-89f4-32dd2c1be574Ã8*Udc6092a7-c746-4e67-95b1-f4a5a695f7ecÃ)Udc5bc578-52c3-4cf9-99f9-74a65e74d411:*Udc3d14e8-cf82-4da2-803d-d7446f45f5b3Ã?   +                                       *Udc2304fa-6d13-418d-993f-886eacadd500 *Udc1e6064-303c-4d69-8d95-526a02791789g*Udc177362-fbab-4659-99b9-f2dc8e140409äÁ*Udbfb16f7-8f70-4d12-9bdc-056fe9c1a47b…[*Udbdbdeb6-5ff7-4646-b033-bbb4caaa991fÀË*Udbd137ea-ee04-4d63-a231-90df2a087ec9 >*Udbc77cda-26f3-4e9e-aa52-a8adbae10a85ƒZ*Udbb31365-8128-4b4b-ab2c-d206993012deÀâ*Ud66d7c2c-6760-4926-bc3d-80ddb756d54eÕ’*Udb864cb6-8040-4392-aa64-17e4ff459ccd»*Udb5e68f9-5f54-4c1b-bb27-3be4539c3d8cÃ2*Udb2b5284-dd38-471a-a2ee-153f35184d6a R*Udb290c05-6995-4864-ba82-438589687a36…{*Udb1c76cd-79a8-4711-a893-ec4a96fc02b4ám*Udae423a6-2524-4372-8b23-546ba497dd77…¶*Udad82f46-3a6b-4806-a87c-8f9a01d5381ba)Udab11657-6628-4331-b100-134dddce1d92tñ*Udaaf7548-0d9c-406d-aae3-82b0404f5338»*Uda9ea31b-8b68-4aae-86b7-c7f3784c0e1b≈Ó*Uda81163b-ea40-47ec-8877-b4fcc3b9a316á∑*Uda6d6cac-c7bb-4bb3-87be-8f2be6515f45 *Ud9a66e60-f53e-4718-a14d-bedab11bc006ZM*Ud999c719-b534-47f9-b728-a73314d13fd7»*Ud6bd1e49-b074-4482-8593-faee077ac01a ﬁ*Ud954a872-3200-4b2f-b433-611af97bffb7âÕ*Ud92d6253-bd05-4dff-bb6c-b0a9740b0043ái*Ud7d945eb-88a0-4dc4-951f-f04f42217f74≈‚*Ud891f945-48f3-46c8-b7cc-6ffc1dbb9895 ≥*Ud87a1666-c8b8-47ee-b821-127ab6caa748ƒ[*Ud8603366-03ed-4b18-b521-25a4780491e1 T*Ud84b029f-5a87-4c66-b473-a6c456600a6bÉ≥*Ud80b5307-43d4-464c-a9c3-2e5714d3c164≈~*Ud7f43aeb-8f25-4108-b908-eddc2c5d91ca»`*Ud8922e9f-1900-4516-86b9-6b4f1e4d1f9bÀÇ*Ud7c9b55d-378a-47b1-a1e0-bad5d3ac456cq£*Ud8eddde2-2019-4290-9006-53b72585e0cdÀÜ*Ud776ecbc-aef8-4632-8ccd-e73e25f3d748…˘*Ud75a8501-3e3a-4e6a-9a3e-77596e13ba33»*Ud9334674-0a16-4af0-b2d0-9cc755233523Àü*Ud6ee2f0c-1995-4c7b-adce-7fe8fd7a3bfe»I*Ud6e54409-0dc4-429d-a6a7-b68bde8ba837 ®*Ud6d39007-70f7-4d75-87f2-6c616187c5b3 *Ud6b65b2c-0df7-41d5-bffa-ac41413488d9¿5*Ud93af7ba-9a23-46ad-8e57-ff86e3ad8445À≠*Ud647ccf6-3bab-4d3b-b1f6-a9389f5645bd…•*Ud53b127c-3616-44fa-a3e4-337944ca8020À“*Ud63fae81-33d9-4539-aa88-fd5a61988ed1…t*Ud755d1cc-becd-4b6c-a144-ca060f010853À˘*Ud5ea4273-45a1-4eb3-bdc7-06e929d62792á˝*Ud5c1bc4d-7dc4-4425-afca-90a2900a1a9e∆r*Ud9fd4d05-844d-42c8-a44b-1c6fcd86f567ü±*Ud9aa2812-471d-4b65-ac87-e0cce545f931 *Ud536c9ab-a862-419a-af24-f60378f7392b»*Ud522cfbf-381b-4f4b-8155-dd142cbf9c8fOe*Ud519dad7-8eae-49ef-a2d8-bcebecbc50e5»c*Ud5139801-a73d-4c28-8f2c-75347d9921f3+[*Ud50b235a-4283-43a3-855a-fcd23a7caab2∏l*Uda1fc7bd-fef1-490d-9bbe-1697cd67ff98À*Ud4a5e8ba-7431-426e-9556-833ff06f6af7ƒ_*Ud4a5b6f5-92f0-4d4e-8c52-6672aae66e8aaÒ*Uda3a38ee-4d36-4118-9b8d-1112a4498406∆[*Ud4873abe-2206-4633-b4fe-e840d7bab145…Ü*Ud4757c42-b2d3-4424-b382-eb0b943d8c38˚V*Uda6566af-2d02-4866-af20-b5f7886d15d4ÀÀ*Ud40bde8f-a727-4cd3-b60d-7989e223285f∆1¨#Õ   Ò ›üƒµ[üƒ˚^u0
+*›ÁÁÁÁÁ √ √ √ S S S S S S S                 º p                                                                                                            r                                                                                                                                                                                                                                                                                      ÇèõU_É	1d58275d-883a-4924-b47a-dc684e3523f7localhost/ucidos/html/dashboard/registrathttps://www.google.com/search?q=localhost%2Fucidos%2Fhtml%2Fdashboard%2Fregistrat&oq=localhost%2Fucidos%2Fhtml%2Fdashboard%2Fregistrat&aqs=edge..69i58j69i57j69i64&sourceid=chrome&ie=UTF-8Ñ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Å!èöAU{Å	5d219473-c50e-42d3-bc5a-e8ad663fbf19localhost/ucidos/html/apps/staff/dashboard/registrationhttp://localhost/ucidos/html/apps/staff/dashboard/registrationuC                                                                                                                                                                                                                                                                                                                               ÅèöU_m	31625cfe-68d6-46dc-85ec-2b7190610f45localhost/ucidos/html/apps/staff/dasboardhttp://localhost/ucidos/html/apps/staff/dasboard	Å	èõUes	6c35515b-17d6-4be5-86de-9f5252eb14f0localhost/ucidos/html/dashboard/registrationhttp://localhost/ucidos/html/dashboard/registration	d Ü                                                                                                                                  eèôqUAO	089496ed-4374-44cc-b701-a4865df5d269localhost/ucidos/html/appshttp://localhost/ucidos/html/apps
+ß ∆                                                                                                                                                                                                  yèö{UUc	ee588542-c876-4b62-8412-4652621054e2localhost/ucidos/html/dashboard/regihttp://localhost/ucidos/html/dashboard/regi â                                                                                                                                     ÅèöFUky	4a4c2af3-2244-4ddc-8351-01408736fde5localhost/ucidos/html/apps/tables/registration/http://localhost/ucidos/html/apps/tables/registration/VèôU!Q	8683cbb8-6052-4abb-8fd4-82a4f3cef4b2localhost:http://localhost:3000/auth/login-1   Å                                                                                                                             Å7èôU#Ç	b9046ccc-e9bc-42f8-a8b8-2a7199d8187blocalhost:3https://www.google.com/search?q=localhost%3A3&oq=localhost%3A3&aqs=edge..69i58j69i57j69i60l3j69i64j69i60&sourceid=chrome&ie=UTF-8VèôU%M	da51ba00-bb5e-461e-929e-2953b21683fblocalhost:30http://localhost:3000/auth/loginLèôU%9	e005bb51-0faf-47a2-a0fe-5e6d37d47833localhost:30http://localhost:3000/Å:èôU%Ç	8ad5a9d0-5f5c-430a-b533-5f6751035a85localhost:30https://www.google.com/search?q=localhost%3A30&oq=localhost%3A30&aqs=edge..69i58j69i57j69i60l3j69i64j69i60&sourceid=chrome&ie=UTF-8JèôU%5	f483567b-5f7f-4193-963b-ad57347c3f8alocalhost:30http://localhost:30/ÅèôU'Å-	7e0ab291-1083-431d-84af-385c54457dd1localhost:300http://localhost:3000/html/vertical-menu-template-no-customizer/auth/signup.html]èôU'Y	6bf945c8-b347-4f99-a881-46a201b886eflocalhost:300http://localhost:3000/auth/admin/login¨#   
+l @ æ nCÌ¡”ó√BÏ æÏøñ
+#@≈Íj'?¬’ñkDk˙œî¡@Nø)òL!
+ˆ
+†B
+JÕÍöo ÈmFÓ%—T¶¶¶¶¶¶¶¶¶¶{{{{{{m5a5a*U2bf51313m5a5a*U2bf51313-0b6e-4360-b6e5-4c96d6cc3938 W*U314b576e-b8e9-43f6-9f84-b8eb48c3eceaÀP*U2ec8e3c6-74df-49e0-93ad-fa3a5724b269ÃS*U2d625a42-feb8-4ac0-8293-5702d25e466a∆f)U2d240ac9-00a4-45b8-9549-f486d638d237Q’*U2e4e10b0-4999-460d-a3cb-916f907248c7Õ≈*U2f2824a7-ae7d-482d-97e2-9516099752e4À¬*U2ccc2ecd-338e-4a10-af0e-3754a0a2eabeáE*U2c578512-862c-46af-9aac-9638f92b2d37≠ª*U2c51b778-a0d2-4cff-b5c5-8516eec5b588¸:*U2e30c715-df6d-40be-a273-0e505ff496c4 *U2c2deaea-3c64-486a-893e-6c6992cfbf46Y“*U2eaa4c66-7a40-45d0-996b-7d1326a33091Àﬁ*U2bd2b468-2c59-4f20-ba00-799ef5546304À*U2b6ba4de-b707-4fd2-8794-380b5aeb833a˚‰)U2b4042a0-6b71-48d3-a70e-a02d22ca061aOô +                                       *U2adfe07b-32f1-49ee-aa04-1011cf44dd62pd*U2db2349c-88f6-4e28-be2e-4d9a01b9ea10À^*U2a91e332-ad1e-4591-9ea5-4c921bf9f6a8√⁄*U2a839c19-2c48-4867-a11e-0837483622bc\*U2a80efd6-7303-4c8f-83e7-d36418873e38Yœ*U29f141be-28df-42b3-b468-c6ca738524f4∆cq &                                  *U2c2b6941-5e5a-44e1-b0bb-2447427a73afÃ.*U30f793b8-ad64-4c49-a02f-3900ea8de1baÃ*U2b75c67c-e456-4bc5-9107-f5e0b498e388Àù*U2ed3fd1e-d7e5-4807-b6f9-af927d5ee7c3Àè*U2ddf8095-18c4-4d01-aaf1-912c51c445a0À}*U2ddb7b42-7cc0-4418-aee7-6512fed661ebÀ_*U2abf16bc-9296-454d-89e3-e9b00807c384À*U2c1f4a02-b70f-47be-a5fd-a18c2111926d ∑*U2b9fa4dc-47aa-4375-933d-1995c65f559b ä*U30384525-c29b-406c-a6e1-7bd7fd871f6c Ü*U31625cfe-68d6-46dc-85ec-2b7190610f45Õ*U2fc03bca-e326-4c73-8eaa-eb608095e166 y*U2b28d307-80d3-4e28-adfc-8ae4b83f7f43…‡*U319b2054-5c05-4243-a39f-17ae19c3b7a2…ô*U2b91a412-408b-4f3a-9f1f-4d1ab1425302…u*U2dfac988-585a-4b50-a716-e4910148722f…o*U314400de-69b3-4333-be67-a44f090514e2…T*U30fb18f9-4909-4b5c-b6f4-c087a0178dcb…L*U2c618094-0754-49b2-be2b-74701e945e15…E*U2bc8c7aa-e208-4120-937c-5c8c61b0c7b4»k*U317f148a-48fb-4b49-9d1b-3debd22b29f2P/*U3177bd14-76fe-47f3-aa99-72fcf190a74d≈v
+uÆ                                                                                                                                              

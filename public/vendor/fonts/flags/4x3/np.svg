@@ -1,0 +1,43 @@
+// Pagination
+// *******************************************************************************
+
+// Pagination Mixins
+@each $color, $value in $theme-colors {
+  @if $color != primary and $color != light {
+    @include template-pagination-variant('.pagination-#{$color}', $value);
+  }
+}
+
+// Pagination next, prev, first & last css padding
+.page-item {
+  &:not(.first, .last, .next, .prev, .previous) {
+    background-color: $pagination-bg;
+    &:not(.active, :hover, :focus) {
+      .page-link {
+        background-color: transparent;
+      }
+    }
+  }
+  &.first,
+  &.last,
+  &.next,
+  &.prev,
+  &.previous {
+    .page-link {
+      padding-top: $pagination-padding-y - 0.105rem;
+      padding-bottom: $pagination-padding-y - 0.105rem;
+    }
+  }
+  &.disabled {
+    .page-link {
+      border-color: $pagination-border-color;
+    }
+  }
+}
+
+// Base pagination active, focus, hover & spacing styling mixin
+@include template-pagination-spacing-radius(
+  '.pagination',
+  $pagination-border-radius,
+  $font-size-base,
+  $pagination-padding-y,
